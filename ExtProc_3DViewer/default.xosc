@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- OpenXilEdu demo scenario: a single pot-driven Ego car looping an oval -->
+<!-- track. Ego's position is entirely controlled by ExtProc_3DViewer.cpp -->
+<!-- every cycle (from the real powertrain model's Speed), so this file just -->
+<!-- needs to place the car on the road once - there is no scripted AI      -->
+<!-- traffic or maneuvers.                                                  -->
+<OpenSCENARIO>
+   <FileHeader revMajor="1"
+               revMinor="0"
+               date="2017-06-09T10:00:00"
+               description="OpenXilEdu oval track demo"
+               author="SimS"/>
+   <ParameterDeclarations>
+      <ParameterDeclaration name="HostVehicle" parameterType="string" value="car_white"/>
+   </ParameterDeclarations>
+   <CatalogLocations>
+      <VehicleCatalog>
+         <Directory path="."/>
+      </VehicleCatalog>
+   </CatalogLocations>
+   <RoadNetwork>
+      <LogicFile filepath="../xodr/oval_track.xodr"/>
+   </RoadNetwork>
+   <Entities>
+      <ScenarioObject name="Ego">
+         <CatalogReference catalogName="VehicleCatalog" entryName="$HostVehicle"/>
+      </ScenarioObject>
+   </Entities>
+   <Storyboard>
+      <Init>
+         <Actions>
+            <Private entityRef="Ego">
+               <PrivateAction>
+                  <LongitudinalAction>
+                     <SpeedAction>
+                        <SpeedActionDynamics dynamicsShape="step" dynamicsDimension="time" value="0.0"/>
+                        <SpeedActionTarget>
+                           <AbsoluteTargetSpeed value="0"/>
+                        </SpeedActionTarget>
+                     </SpeedAction>
+                  </LongitudinalAction>
+               </PrivateAction>
+               <PrivateAction>
+                  <TeleportAction>
+                     <Position>
+                        <LanePosition roadId="1" laneId="-1" offset="0" s="0"/>
+                     </Position>
+                  </TeleportAction>
+               </PrivateAction>
+            </Private>
+         </Actions>
+      </Init>
+      <Story name="EmptyStory">
+         <Act name="EmptyAct">
+            <ManeuverGroup maximumExecutionCount="1" name="EmptySequence">
+               <Actors selectTriggeringEntities="false">
+                  <EntityRef entityRef="Ego"/>
+               </Actors>
+            </ManeuverGroup>
+            <StartTrigger>
+               <ConditionGroup>
+                  <Condition name="ActStart" delay="0" conditionEdge="rising">
+                     <ByValueCondition>
+                        <SimulationTimeCondition value="0" rule="greaterThan"/>
+                     </ByValueCondition>
+                  </Condition>
+               </ConditionGroup>
+            </StartTrigger>
+         </Act>
+      </Story>
+      <StopTrigger>
+          <!-- No real stop condition - this demo just keeps running for as -->
+          <!-- long as XilEnv is driving it. A absurdly large time threshold -->
+          <!-- keeps the Storyboard schema-valid without ever firing in -->
+          <!-- practice. -->
+          <ConditionGroup>
+              <Condition conditionEdge="none" delay="0" name="NeverInPractice">
+                  <ByValueCondition>
+                      <SimulationTimeCondition rule="greaterThan" value="1000000"/>
+                  </ByValueCondition>
+              </Condition>
+          </ConditionGroup>
+      </StopTrigger>
+   </Storyboard>
+</OpenSCENARIO>
