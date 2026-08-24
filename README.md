@@ -35,7 +35,7 @@ Double-click **`start_stage0.bat`** in the `OpenXilEdu` folder.
 
 Windows will probably show you a blue **"Windows protected your PC"** box. That's only because I haven't paid for a code-signing certificate — click **More info**, then **Run anyway**. You'll see it once and never again.
 
-You should get two windows: the **OpenXilEnv GUI**, full of sliders and gauges, and the **esmini 3D viewer**, with a white car sitting on an oval track.
+You should get two windows: the **OpenXilEnv GUI**, with some sliders and indicators, and the **esmini 3D viewer**, with a white car sitting on an oval track.
 
 ### Drive
 
@@ -43,7 +43,7 @@ The car is switched off, so the accelerator won't do anything yet. Find the smal
 
 Now drag the **`AcceleratorPosition`** slider up.
 
-Watch the car pull away, and keep half an eye on the gauges while you do it. Nothing there is animation. The speed comes out of a real force balance — drag, rolling resistance, motor torque — and the battery is genuinely being drained to produce it. `BrakePedal` brings you back down again.
+Watch the car pull away, and keep half an eye on the speedometer while you do it. Nothing there is animation. The speed comes out of a real force balance — drag, rolling resistance, motor torque — and the battery is genuinely being drained to produce it. `BrakePedal` brings you back down again.
 
 ## Stage 1 — Add the pedal
 
