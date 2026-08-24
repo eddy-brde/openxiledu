@@ -72,11 +72,11 @@ A potentiometer has three pins. Push a jumper wire onto each one and connect the
 | Other outer pin | **GND** |
 | Middle pin (the wiper) | **A0** |
 
+<img src="arduino_stage1.png" alt="Potentiometer wired to an Arduino Uno: outer pins to 5V and GND, wiper to A0" width="400">
+
 Which outer pin goes to 5V and which to GND doesn't matter — swapping them just flips which way you turn the knob for more throttle. Just don't let the 5V and GND wires touch each other directly; that's a short circuit.
 
 That's the only wiring you need. The ignition indicator uses the Arduino's own built-in LED (the one labeled "L", next to pin 13) — the simulation sends the `FireUp` state back down to the Arduino over the same USB cable, so no extra parts or wiring are needed for it to light up.
-
-<!-- TODO: photo or Fritzing diagram of the wiring -->
 
 ### Flash the sketch
 
