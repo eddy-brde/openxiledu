@@ -2,6 +2,8 @@
 
 OpenXilEdu is a free educational project built on [OpenXilEnv](https://github.com/eclipse-openxilenv/openxilenv). It bundles a real EV powertrain simulation (battery, motor, transmission, vehicle dynamics) with an Arduino accelerator pedal and live 3D visualization ([esmini](https://github.com/esmini/esmini)). Turn a potentiometer, and watch it drive a car around an oval track. It is intended for students, for parents looking for a weekend project to build with their kid, and for anyone who has ever wondered what more you could do with an Arduino than blink an LED.
 
+<video src="https://github.com/user-attachments/assets/ddbf42f4-78ef-4cbf-aabf-934dc002f94f" controls width="640"></video>
+
 **No Arduino? Start with Stage 0 anyway.** It runs on your PC alone, and once you've seen the car move, you'll know whether the Arduino is worth ordering.
 
 The project is structured in three stages:
@@ -42,8 +44,6 @@ The car is switched off, so the accelerator won't do anything yet. Find the smal
 Now drag the **`AcceleratorPosition`** slider up.
 
 Watch the car pull away, and keep half an eye on the gauges while you do it. Nothing there is animation. The speed comes out of a real force balance — drag, rolling resistance, motor torque — and the battery is genuinely being drained to produce it. `BreakPedal` brings you back down again.
-
-<!-- TODO: short GIF of the car moving, embedded above this line -->
 
 ## Stage 1 — Add the pedal
 
