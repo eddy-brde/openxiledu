@@ -43,7 +43,7 @@ The car is switched off, so the accelerator won't do anything yet. Find the smal
 
 Now drag the **`AcceleratorPosition`** slider up.
 
-Watch the car pull away, and keep half an eye on the gauges while you do it. Nothing there is animation. The speed comes out of a real force balance — drag, rolling resistance, motor torque — and the battery is genuinely being drained to produce it. `BreakPedal` brings you back down again.
+Watch the car pull away, and keep half an eye on the gauges while you do it. Nothing there is animation. The speed comes out of a real force balance — drag, rolling resistance, motor torque — and the battery is genuinely being drained to produce it. `BrakePedal` brings you back down again.
 
 ## Stage 1 — Add the pedal
 
@@ -118,7 +118,7 @@ This stage is open-ended — what you need depends on what you want to change. A
 
 ### Ideas to get started
 
-- **Add a brake pedal on a second pot.** Read a second analog pin in the sketch, send it alongside `PedalPos:`, and have the bridge expose it as `BreakPedal`. That signal is already a real input to the vehicle model — it's just only ever been driven from the GUI slider so far.
+- **Add a brake pedal on a second pot.** Read a second analog pin in the sketch, send it alongside `PedalPos:`, and have the bridge expose it as `BrakePedal`. That signal is already a real input to the vehicle model — it's just only ever been driven from the GUI slider so far.
 - **Replace the `FireUp` GUI button with a physical switch.** This one's more interesting than it sounds. Today `FireUp` only travels *from* the PC *to* the Arduino, to light the LED. A real ignition switch means the sketch has to read a digital pin and report it back, so you'll be extending the protocol in the other direction too.
 - **Change how the car handles.** Try a different `CarWeight` or `WheelRadius` in `ExtProc_VehicleModel.c` and see what it does to the feel of it.
 
